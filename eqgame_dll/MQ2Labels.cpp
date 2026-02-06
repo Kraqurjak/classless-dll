@@ -10,7 +10,7 @@
 
 typedef enum eStatEntry
 {
-	eStatClassless = 1,
+	eStatClassesBitmask = 1,
 	eStatCurHP,
 	eStatCurMana,
 	eStatCurEndur,
@@ -45,21 +45,9 @@ typedef enum eStatEntry
 	eStatSpellCrit,
 	eStatHealingCrit,
 	eStatTotalPower,
-	eStatSynergyLevel,
 	eStatMitigation,
 	eStatAAPoints,
-	eStatSynergyLevel1,
-	eStatSynergyLevel2,
-	eStatSynergyLevel3,
-	eStatSynergyLevel4,
-	eStatSynergyLevel5,
-	eStatSynergyLevel6,
-	eStatSynergyLevel7,
-	eStatSynergyLevel8,
-	eStatSynergyLevel9,
-	eStatSynergyLevel10,
-	eStatSynergyLevel11,
-	eStatSynergyLevel12,
+	eStatDummyStat,
 	eStatMax
 };
 
@@ -467,209 +455,216 @@ typedef enum EQLabelTypes {
 	ExtraBuff32 = 532,
 	ExtraBuff33 = 533,
 	ExtraBuff34 = 534,
-ExtraBuff35 = 535,
-ExtraBuff36 = 536,
-ExtraBuff37 = 537,
-ExtraBuff38 = 538,
-ExtraBuff39 = 539,
-ExtraBuff40 = 540,
-ExtraBuff41 = 541,
-NA549 = 549,
-BlockedBuff0 = 550,
-BlockedBuff1 = 551,
-BlockedBuff2 = 552,
-BlockedBuff3 = 553,
-BlockedBuff4 = 554,
-BlockedBuff5 = 555,
-BlockedBuff6 = 556,
-BlockedBuff7 = 557,
-BlockedBuff8 = 558,
-BlockedBuff9 = 559,
-BlockedBuff10 = 560,
-BlockedBuff11 = 561,
-BlockedBuff12 = 562,
-BlockedBuff13 = 563,
-BlockedBuff14 = 564,
-BlockedBuff15 = 565,
-BlockedBuff16 = 566,
-BlockedBuff17 = 567,
-BlockedBuff18 = 568,
-BlockedBuff19 = 569,
-BlockedBuff20 = 570,
-BlockedBuff21 = 571,
-BlockedBuff22 = 572,
-BlockedBuff23 = 573,
-BlockedBuff24 = 574,
-BlockedBuff25 = 575,
-BlockedBuff26 = 576,
-BlockedBuff27 = 577,
-BlockedBuff28 = 578,
-BlockedBuff29 = 579,
-NA580 = 580,
-SongBuff0 = 600,
-SongBuff1 = 601,
-SongBuff2 = 602,
-SongBuff3 = 603,
-SongBuff4 = 604,
-SongBuff5 = 605,
-SongBuff6 = 606,
-SongBuff7 = 607,
-SongBuff8 = 608,
-SongBuff9 = 609,
-SongBuff10 = 610,
-SongBuff11 = 611,
-SongBuff12 = 612,
-SongBuff13 = 613,
-SongBuff14 = 614,
-SongBuff15 = 615,
-SongBuff16 = 616,
-SongBuff17 = 617,
-SongBuff18 = 618,
-SongBuff19 = 619,
-SongBuff20 = 620,
-SongBuff21 = 621,
-SongBuff22 = 622,
-SongBuff23 = 623,
-SongBuff24 = 624,
-SongBuff25 = 625,
-SongBuff26 = 626,
-SongBuff27 = 627,
-SongBuff28 = 628,
-SongBuff29 = 629,
-NA630 = 630,
-PetBlockedBuff0 = 650,
-PetBlockedBuff1 = 651,
-PetBlockedBuff2 = 652,
-PetBlockedBuff3 = 653,
-PetBlockedBuff4 = 654,
-PetBlockedBuff5 = 655,
-PetBlockedBuff6 = 656,
-PetBlockedBuff7 = 657,
-PetBlockedBuff8 = 658,
-PetBlockedBuff9 = 659,
-PetBlockedBuff10 = 660,
-PetBlockedBuff11 = 661,
-PetBlockedBuff12 = 662,
-PetBlockedBuff13 = 663,
-PetBlockedBuff14 = 664,
-PetBlockedBuff15 = 665,
-PetBlockedBuff16 = 666,
-PetBlockedBuff17 = 667,
-PetBlockedBuff18 = 668,
-PetBlockedBuff19 = 669,
-PetBlockedBuff20 = 670,
-PetBlockedBuff21 = 671,
-PetBlockedBuff22 = 672,
-PetBlockedBuff23 = 673,
-PetBlockedBuff24 = 674,
-PetBlockedBuff25 = 675,
-PetBlockedBuff26 = 676,
-PetBlockedBuff27 = 677,
-PetBlockedBuff28 = 678,
-PetBlockedBuff29 = 679,
-MeleePower = 1002,
-SpellPower = 1003,
-HealingPower = 1004,
-TotalPower = 1005,
-SynergyLevel = 1006,
-SpellHaste = 1009,
-MeleeHaste = 1010,
-HealingHaste = 1011,
-SpellCrit = 1012,
-MeleeCrit = 1013,
-HealingCrit = 1014,
-Walkspeed = 1015,
-Runspeed = 1016,
-Classless = 1017,
-Mitigation = 1018,
-AAPoints = 1019,
-SynergyLevel1 = 1020,
-SynergyLevel2 = 1021,
-SynergyLevel3 = 1022,
-SynergyLevel4 = 1023,
-SynergyLevel5 = 1024,
-SynergyLevel6 = 1025,
-SynergyLevel7 = 1026,
-SynergyLevel8 = 1027,
-SynergyLevel9 = 1028,
-SynergyLevel10 = 1029,
-SynergyLevel11 = 1030,
-SynergyLevel12 = 1031,
-EQLabelTypesMax,
-};
+	ExtraBuff35 = 535,
+	ExtraBuff36 = 536,
+	ExtraBuff37 = 537,
+	ExtraBuff38 = 538,
+	ExtraBuff39 = 539,
+	ExtraBuff40 = 540,
+	ExtraBuff41 = 541,
+	NA549 = 549,
+	BlockedBuff0 = 550,
+	BlockedBuff1 = 551,
+	BlockedBuff2 = 552,
+	BlockedBuff3 = 553,
+	BlockedBuff4 = 554,
+	BlockedBuff5 = 555,
+	BlockedBuff6 = 556,
+	BlockedBuff7 = 557,
+	BlockedBuff8 = 558,
+	BlockedBuff9 = 559,
+	BlockedBuff10 = 560,
+	BlockedBuff11 = 561,
+	BlockedBuff12 = 562,
+	BlockedBuff13 = 563,
+	BlockedBuff14 = 564,
+	BlockedBuff15 = 565,
+	BlockedBuff16 = 566,
+	BlockedBuff17 = 567,
+	BlockedBuff18 = 568,
+	BlockedBuff19 = 569,
+	BlockedBuff20 = 570,
+	BlockedBuff21 = 571,
+	BlockedBuff22 = 572,
+	BlockedBuff23 = 573,
+	BlockedBuff24 = 574,
+	BlockedBuff25 = 575,
+	BlockedBuff26 = 576,
+	BlockedBuff27 = 577,
+	BlockedBuff28 = 578,
+	BlockedBuff29 = 579,
+	NA580 = 580,
+	SongBuff0 = 600,
+	SongBuff1 = 601,
+	SongBuff2 = 602,
+	SongBuff3 = 603,
+	SongBuff4 = 604,
+	SongBuff5 = 605,
+	SongBuff6 = 606,
+	SongBuff7 = 607,
+	SongBuff8 = 608,
+	SongBuff9 = 609,
+	SongBuff10 = 610,
+	SongBuff11 = 611,
+	SongBuff12 = 612,
+	SongBuff13 = 613,
+	SongBuff14 = 614,
+	SongBuff15 = 615,
+	SongBuff16 = 616,
+	SongBuff17 = 617,
+	SongBuff18 = 618,
+	SongBuff19 = 619,
+	SongBuff20 = 620,
+	SongBuff21 = 621,
+	SongBuff22 = 622,
+	SongBuff23 = 623,
+	SongBuff24 = 624,
+	SongBuff25 = 625,
+	SongBuff26 = 626,
+	SongBuff27 = 627,
+	SongBuff28 = 628,
+	SongBuff29 = 629,
+	NA630 = 630,
+	PetBlockedBuff0 = 650,
+	PetBlockedBuff1 = 651,
+	PetBlockedBuff2 = 652,
+	PetBlockedBuff3 = 653,
+	PetBlockedBuff4 = 654,
+	PetBlockedBuff5 = 655,
+	PetBlockedBuff6 = 656,
+	PetBlockedBuff7 = 657,
+	PetBlockedBuff8 = 658,
+	PetBlockedBuff9 = 659,
+	PetBlockedBuff10 = 660,
+	PetBlockedBuff11 = 661,
+	PetBlockedBuff12 = 662,
+	PetBlockedBuff13 = 663,
+	PetBlockedBuff14 = 664,
+	PetBlockedBuff15 = 665,
+	PetBlockedBuff16 = 666,
+	PetBlockedBuff17 = 667,
+	PetBlockedBuff18 = 668,
+	PetBlockedBuff19 = 669,
+	PetBlockedBuff20 = 670,
+	PetBlockedBuff21 = 671,
+	PetBlockedBuff22 = 672,
+	PetBlockedBuff23 = 673,
+	PetBlockedBuff24 = 674,
+	PetBlockedBuff25 = 675,
+	PetBlockedBuff26 = 676,
+	PetBlockedBuff27 = 677,
+	PetBlockedBuff28 = 678,
+	PetBlockedBuff29 = 679,
+	MeleePower = 1002,
+	SpellPower = 1003,
+	HealingPower = 1004,
+	TotalPower = 1005,
+	//SynergyLevel = 1006,
+	SpellHaste = 1009,
+	MeleeHaste = 1010,
+	HealingHaste = 1011,
+	SpellCrit = 1012,
+	MeleeCrit = 1013,
+	HealingCrit = 1014,
+	Walkspeed = 1015,
+	Runspeed = 1016,
+	ClassesBitmask = 1017,
+	Mitigation = 1018,
+	AAPoints = 1019,
+	EQLabelTypesMax,
+	};
 
-typedef string(*pEqTypesFunc)(EQLabelTypes LabelID);
+	typedef string(*pEqTypesFunc)(EQLabelTypes LabelID);
 
-std::map<EQLabelTypes, pEqTypesFunc> eqTypesMap = std::map<EQLabelTypes, pEqTypesFunc>();
+	std::map<EQLabelTypes, pEqTypesFunc> eqTypesMap;
+	std::map<EQLabelTypes, eStatEntry> statLabelMappings;
+	std::map<eStatEntry, int64_t> statEntries;
 
-std::map<EQLabelTypes, eStatEntry> statLabelMappings = std::map<EQLabelTypes, eStatEntry>();
-
-std::map<eStatEntry, int64_t> statEntries;
-
-std::string GetSpeedFloatRepresentationOfStat(eStatEntry statType)
-{
-	auto statItr = statEntries.find(statType);
-
-	if (statItr != statEntries.end())
+	std::string GetSpeedFloatRepresentationOfStat(eStatEntry statType)
 	{
-		std::stringstream strStream(stringstream::in || stringstream::out);
-		strStream.precision(3);
-		strStream << (float)((statItr)->second / 100000.f);
-		return strStream.str();
+		auto statItr = statEntries.find(statType);
+		if (statItr != statEntries.end())
+		{
+			std::stringstream strStream;
+			strStream.precision(3);
+			strStream << (float)(statItr->second / 100000.f);
+			return strStream.str();
+		}
+
+		return " ";
 	}
 
-	return string(" ");
-}
 
-std::string GetStringWeightFloatRepresentationOfStat(eStatEntry statType)
-{
-	auto statItr = statEntries.find(statType);
-
-	if (statEntries.find(statType) != statEntries.end())
+	std::string GetStringWeightFloatRepresentationOfStat(eStatEntry statType)
 	{
-		double num_val = (statItr)->second / 10.0;
+		auto statItr = statEntries.find(statType);
+		if (statItr != statEntries.end())
+		{
+			double num_val = statItr->second / 10.0;
 
-		std::stringstream strStream(stringstream::in | stringstream::out);
-		strStream << num_val;
-		return strStream.str();
+			std::stringstream strStream;
+			strStream << num_val;
+			return strStream.str();
+		}
+
+		return " ";
 	}
 
-	return string(" ");
-}
 
-std::string GetStringRepresentationOfStat(eStatEntry statType)
-{
-	auto statItr = statEntries.find(statType);
-
-	if (statEntries.find(statType) != statEntries.end())
+	std::string GetStringRepresentationOfStat(eStatEntry statType)
 	{
-		std::stringstream strStream(stringstream::in | stringstream::out);
-		strStream << (statItr)->second;
-		return strStream.str();
+		auto statItr = statEntries.find(statType);
+		if (statItr != statEntries.end())
+		{
+			std::stringstream strStream;
+			strStream << statItr->second;
+			return strStream.str();
+		}
+
+		return " ";
 	}
 
-	return string(" ");
-}
 
 std::string GetStringRepresentationOfClass()
 {
-	auto statItr = statEntries.find(eStatClassless);
+	auto itr = statEntries.find(eStatClassesBitmask);
 
-	if (statEntries.find(eStatClassless) != statEntries.end())
+	// If the server did not send a class bitmask, fall back to client class
+	if (itr == statEntries.end())
 	{
-		if (statItr->second == 17)
-			return string("Classless");
-
-		if (statItr->second >= 1 && statItr->second <= 16)
-			return string((char*)GetClassDesc(pLocalPlayer->Data.pSpawn->Class));
+		if (pLocalPlayer && pLocalPlayer->Data.pSpawn)
+			return std::string((char*)GetClassDesc(pLocalPlayer->Data.pSpawn->Class));
+		return "None";
 	}
 
-	if (pLocalPlayer && pLocalPlayer->Data.pSpawn)
+	uint32_t mask = static_cast<uint32_t>(itr->second);
+
+	// No classes set, fall back
+	if (mask == 0)
 	{
-		return string((char*)GetClassDesc(pLocalPlayer->Data.pSpawn->Class));
+		if (pLocalPlayer && pLocalPlayer->Data.pSpawn)
+			return std::string((char*)GetClassDesc(pLocalPlayer->Data.pSpawn->Class));
+		return "None";
 	}
-	return "None";
+
+	std::string result;
+
+	// Enumerate EQ classes 1–16
+	for (int class_id = 1; class_id <= 16; ++class_id)
+	{
+		uint32_t bit = (1u << (class_id - 1));
+		if (mask & bit)
+		{
+			if (!result.empty())
+				result += " / ";
+
+			result += (char*)GetClassDesc(class_id);
+		}
+	}
+
+	return result.empty() ? "None" : result;
 }
+
 
 std::string EQLabelFunction(EQLabelTypes LabelID)
 {
@@ -683,58 +678,24 @@ std::string EQLabelFunction(EQLabelTypes LabelID)
 	return GetStringRepresentationOfStat(iter->second);
 }
 
-std::string EQSynergyLabelFunction(EQLabelTypes LabelID)
-{
-	if (LabelID >= EQLabelTypesMax)
-		return string(" ");
-
-	auto iter = statLabelMappings.find(EQLabelTypes(LabelID));
-	if (iter == statLabelMappings.end())
-		return string(" ");
-
-	auto statItr = statEntries.find(eStatClassless);
-	if (statItr == statEntries.end())
-	{
-		return string(" ");
-	}
-
-	if (statItr->second != 17)
-	{
-		return string(" ");
-	}
-
-
-	return GetStringRepresentationOfStat(iter->second);
-}
-
-std::string EQClasslessFunction(EQLabelTypes LabelID)
-{
-	if (LabelID >= EQLabelTypesMax)
-		return string(" ");
-
-	auto iter = statLabelMappings.find(EQLabelTypes(LabelID));
-	if (iter == statLabelMappings.end())
-		return string(" ");
-
-	return GetStringRepresentationOfClass();
-}
 
 std::string EQDualManaLabelFunction(EQLabelTypes LabelID)
 {
 	if (LabelID >= EQLabelTypesMax)
-		return string(" ");
+		return " ";
 
-	return GetStringRepresentationOfStat(eStatCurMana) + " / " + GetStringRepresentationOfStat(eStatMaxMana);
+	return GetStringRepresentationOfStat(eStatCurMana) + " / " +
+		GetStringRepresentationOfStat(eStatMaxMana);
 }
 
 std::string EQSpeedLabelFunction(EQLabelTypes LabelID)
 {
 	if (LabelID >= EQLabelTypesMax)
-		return string(" ");
+		return " ";
 
 	auto iter = statLabelMappings.find(EQLabelTypes(LabelID));
 	if (iter == statLabelMappings.end())
-		return string(" ");
+		return " ";
 
 	return GetSpeedFloatRepresentationOfStat(iter->second);
 }
@@ -742,53 +703,62 @@ std::string EQSpeedLabelFunction(EQLabelTypes LabelID)
 std::string EQDualHPLabelFunction(EQLabelTypes LabelID)
 {
 	if (LabelID >= EQLabelTypesMax)
-		return string(" ");
+		return " ";
 
-	return GetStringRepresentationOfStat(eStatCurHP) + " / " + GetStringRepresentationOfStat(eStatMaxHP);
+	return GetStringRepresentationOfStat(eStatCurHP) + " / " +
+		GetStringRepresentationOfStat(eStatMaxHP);
 }
 
 std::string EQHPPercentageLabelFunction(EQLabelTypes LabelID)
 {
 	if (LabelID >= EQLabelTypesMax)
-		return "100";
+		return " ";
 
 	auto statItrCur = statEntries.find(eStatCurHP);
-
 	auto statItrMax = statEntries.find(eStatMaxHP);
 
 	if (statItrCur == statEntries.end() || statItrMax == statEntries.end())
-	{
-		return "100";
-	}
+		return " ";
 
 	auto statCur = statItrCur->second;
 	auto statMax = statItrMax->second;
 
-	auto outVal = (int)((double)statCur / (double)statMax * 100.0);
-	std::stringstream strStream(stringstream::in | stringstream::out);
+	if (statMax <= 0 || statCur < 0)
+		return " ";
+
+	int outVal = static_cast<int>(
+		(double)statCur / (double)statMax * 100.0
+		);
+
+	std::stringstream strStream;
 	strStream << outVal;
 	return strStream.str();
 }
 
+
+
 std::string EQManaPercentageLabelFunction(EQLabelTypes LabelID)
 {
 	if (LabelID >= EQLabelTypesMax)
-		return "100";
+		return " ";
 
 	auto statItrCur = statEntries.find(eStatCurMana);
-
 	auto statItrMax = statEntries.find(eStatMaxMana);
 
 	if (statItrCur == statEntries.end() || statItrMax == statEntries.end())
-	{
-		return "100";
-	}
+		return " ";
 
 	auto statCur = statItrCur->second;
 	auto statMax = statItrMax->second;
 
-	auto outVal = (int)((double)statCur / (double)statMax * 100.0);
-	std::stringstream strStream(stringstream::in | stringstream::out);
+	if (statMax <= 0 || statCur < 0)
+		return " ";
+
+	int outVal = static_cast<int>(
+		(double)statCur / (double)statMax * 100.0
+		);
+
+	std::stringstream strStream;
 	strStream << outVal;
 	return strStream.str();
 }
@@ -796,22 +766,25 @@ std::string EQManaPercentageLabelFunction(EQLabelTypes LabelID)
 std::string EQEndurPercentageLabelFunction(EQLabelTypes LabelID)
 {
 	if (LabelID >= EQLabelTypesMax)
-		return "100";
+		return " ";
 
 	auto statItrCur = statEntries.find(eStatCurEndur);
-
 	auto statItrMax = statEntries.find(eStatMaxEndur);
 
 	if (statItrCur == statEntries.end() || statItrMax == statEntries.end())
-	{
-		return "100";
-	}
+		return " ";
 
 	auto statCur = statItrCur->second;
 	auto statMax = statItrMax->second;
 
-	auto outVal = (int)((double)statCur / (double)statMax * 100.0);
-	std::stringstream strStream(stringstream::in | stringstream::out);
+	if (statMax <= 0 || statCur < 0)
+		return " ";
+
+	int outVal = static_cast<int>(
+		(double)statCur / (double)statMax * 100.0
+		);
+
+	std::stringstream strStream;
 	strStream << outVal;
 	return strStream.str();
 }
@@ -819,25 +792,36 @@ std::string EQEndurPercentageLabelFunction(EQLabelTypes LabelID)
 
 std::string EQGaugeLabelFunction(eStatEntry curStat, eStatEntry maxStat, int* outVal)
 {
+	if (!outVal)
+		return " ";
 
 	auto statItrCur = statEntries.find(curStat);
-
 	auto statItrMax = statEntries.find(maxStat);
 
 	if (statItrCur == statEntries.end() || statItrMax == statEntries.end())
 	{
+		*outVal = 0;
 		return " ";
 	}
 
 	auto statCur = statItrCur->second;
 	auto statMax = statItrMax->second;
 
-	*outVal = (int)((double)statCur / (double)statMax * 1000.0);
+	if (statMax <= 0 || statCur < 0)
+	{
+		*outVal = 0;
+		return " ";
+	}
 
-	std::stringstream strStream(stringstream::in | stringstream::out);
+	*outVal = static_cast<int>(
+		(double)statCur / (double)statMax * 1000.0
+		);
+
+	std::stringstream strStream;
 	strStream << *outVal;
 	return strStream.str();
 }
+
 
 std::string EQDualEndurLabelFunction(EQLabelTypes LabelID)
 {
@@ -952,208 +936,314 @@ public:
     }
 };
 
-DETOUR_TRAMPOLINE_EMPTY(class CXWnd * CSidlManagerHook::CreateLabel_Trampoline(class CXWnd *, struct _CControl *));
+DETOUR_TRAMPOLINE_EMPTY(
+	class CXWnd* CSidlManagerHook::CreateLabel_Trampoline(
+		class CXWnd*, struct _CControl*
+	)
+);
 
-int __cdecl GetGaugeValueFromEQ_Trampoline(int, class CXStr *, bool *, unsigned long *);
-int __cdecl GetGaugeValueFromEQ_Detour(int EQType, class CXStr *out, bool *arg3, unsigned long *colorout)
+int __cdecl GetGaugeValueFromEQ_Trampoline(
+	int, class CXStr*, bool*, unsigned long*
+);
+
+int __cdecl GetGaugeValueFromEQ_Detour(
+	int EQType,
+	class CXStr* out,
+	bool* arg3,
+	unsigned long* colorout)
 {
 	int ret = GetGaugeValueFromEQ_Trampoline(EQType, out, arg3, colorout);
-	if (out && out->Ptr) {
-		if (out && out->Ptr) {
-			bool Found = FALSE;
-			std::string eqtypesString = "";
-			if (1 == EQType) {
- 				std::string pTargetRatio = EQGaugeLabelFunction(eStatCurHP, eStatMaxHP, &ret);
-			}
-			else if (2 == EQType) {
-				std::string pTargetName = EQGaugeLabelFunction(eStatCurMana, eStatMaxMana, &ret);
-			}
-			else if (3 == EQType) {
-				std::string pTargetName = EQGaugeLabelFunction(eStatCurEndur, eStatMaxEndur, &ret);
-			}
-			else if (6 == EQType && pTarget != nullptr && pTarget == pLocalPlayer) {
-				std::string pTargetName = EQGaugeLabelFunction(eStatCurHP, eStatMaxHP, &ret);
-				SetCXStr(&out->Ptr, pTarget->Data.DisplayedName);
-			}
 
+	// We ONLY override the gauge fill value here.
+	// Label text is handled elsewhere via label hooks.
+	switch (EQType)
+	{
+	case 1: // HP
+		EQGaugeLabelFunction(eStatCurHP, eStatMaxHP, &ret);
+		break;
+
+	case 2: // Mana
+		EQGaugeLabelFunction(eStatCurMana, eStatMaxMana, &ret);
+		break;
+
+	case 3: // Endurance
+		EQGaugeLabelFunction(eStatCurEndur, eStatMaxEndur, &ret);
+		break;
+
+	case 6: // Target HP (self only)
+		if (pTarget && pTarget == pLocalPlayer)
+		{
+			EQGaugeLabelFunction(eStatCurHP, eStatMaxHP, &ret);
 		}
+		break;
+
+	default:
+		break;
 	}
+
 	return ret;
 }
 
-int __cdecl GetLabelFromEQ_Trampoline(int, class CXStr *, bool *, unsigned long *);
-int __cdecl GetLabelFromEQ_Detour(int EQType, class CXStr *out, bool *arg3, unsigned long *colorout)
+
+int __cdecl GetLabelFromEQ_Trampoline(int, class CXStr*, bool*, unsigned long*);
+
+int __cdecl GetLabelFromEQ_Detour(int EQType, class CXStr* out, bool* arg3, unsigned long* colorout)
 {
+
 	int ret = GetLabelFromEQ_Trampoline(EQType, out, arg3, colorout);
-	if (out && out->Ptr) {
-		bool Found = FALSE;
-		std::string eqtypesString = "";
 
-		if (EQType == 29)
-		{
-			if (pTarget && pLocalPlayer && pTarget == pLocalPlayer)
-			{
-				eqtypesString = EQHPPercentageLabelFunction((EQLabelTypes)EQType);
-				SetCXStr(&out->Ptr, (PCHAR)eqtypesString.c_str());
-			}
-			return ret;
-		}
-		for (auto eqtype : eqTypesMap) {
-			if (eqtype.first == EQType) {
+	if (!out || !out->Ptr)
+		return ret;
 
-				auto func = eqtype.second;
-				if (func)
-				{
-					eqtypesString = (*func)(eqtype.first);
-					Found = TRUE;
-					break;
-				}
-			}
-		}
-		if (Found)
+	
+	if (EQType == EQLabelTypes::HitPointPercentage)
+	{
+		if (pTarget && pLocalPlayer && pTarget == pLocalPlayer)
 		{
-			SetCXStr(&out->Ptr, (PCHAR)eqtypesString.c_str());
+			std::string text = EQHPPercentageLabelFunction((EQLabelTypes)EQType);
+			SetCXStr(&out->Ptr, (PCHAR)text.c_str());
 		}
+		return ret;
 	}
+
+	
+	auto it = eqTypesMap.find((EQLabelTypes)EQType);
+	if (it == eqTypesMap.end() || !it->second)
+		return ret;
+
+
+	char buffer[MAX_STRING] = { 0 };
+	GetCXStr(out->Ptr, buffer, MAX_STRING);
+	std::string clientText(buffer);
+
+
+	switch (EQType)
+	{
+	case EQLabelTypes::Strength:
+	case EQLabelTypes::Stamina:
+	case EQLabelTypes::Agility:
+	case EQLabelTypes::Dexterity:
+	case EQLabelTypes::Wisdom:
+	case EQLabelTypes::Intelligence:
+	case EQLabelTypes::Charisma:
+	{
+		size_t slash = clientText.find('/');
+		if (slash == std::string::npos)
+			return ret;
+
+		auto mapIt = statLabelMappings.find((EQLabelTypes)EQType);
+		if (mapIt == statLabelMappings.end())
+			return ret;
+
+		auto statIt = statEntries.find(mapIt->second);
+		if (statIt == statEntries.end())
+			return ret;
+
+		std::string finalText =
+			std::to_string((int)statIt->second) +
+			clientText.substr(slash);
+
+		SetCXStr(&out->Ptr, (PCHAR)finalText.c_str());
+		return ret;
+	}
+
+	default:
+		break;
+	}
+
+	std::string serverText = it->second((EQLabelTypes)EQType);
+	if (!serverText.empty())
+		SetCXStr(&out->Ptr, (PCHAR)serverText.c_str());
+
 	return ret;
 }
+
+
 
 
 // CLabelHook::Draw_Detour
 
 class CLabelHook {
 public:
-    VOID Draw_Trampoline(VOID);
-    VOID Draw_Detour(VOID)
-    {
-        PCLABELWND pThisLabel;
-        __asm {mov [pThisLabel], ecx};
-        //          (PCLABELWND)this;
-        Draw_Trampoline();
-        CHAR Buffer[MAX_STRING] = {0};
-        BOOL Found=FALSE;
-        DWORD index;
+	VOID Draw_Trampoline(VOID);
 
-		std::string eqtypesString = "";
+	VOID Draw_Detour(VOID)
+	{
+		PCLABELWND pThisLabel;
+		__asm { mov[pThisLabel], ecx };
 
-		if ((DWORD)pThisLabel->SidlPiece>=0) {
-            for (auto eqtype : eqTypesMap) {
-                if (eqtype.first==pThisLabel->SidlPiece) {
+		Draw_Trampoline();
 
-					auto func = eqtype.second;
-					if (func)
-					{
-						eqtypesString = (*func)(eqtype.first);
-						Found = TRUE;
-						break;
-					}
-                }
-            }
-        }
-        if (Found) SetCXStr(&(pThisLabel->Wnd.WindowText),(PCHAR)eqtypesString.c_str());
-    }
-}; 
+		if (!pThisLabel)
+			return;
+
+		auto iter = eqTypesMap.find((EQLabelTypes)pThisLabel->SidlPiece);
+		if (iter == eqTypesMap.end())
+			return;
+
+		auto func = iter->second;
+		if (!func)
+			return;
+
+		std::string eqtypesString = (*func)(iter->first);
+		if (!eqtypesString.empty())
+		{
+			SetCXStr(&pThisLabel->Wnd.WindowText, (PCHAR)eqtypesString.c_str());
+		}
+	}
+};
+
 
 class EQCharacter1Hook {
 public:
 	int32_t MaxHP_Trampoline(int, int);
 	int32_t MaxHP_Detour(int a1, int a2)
 	{
-		if (statEntries.find(eStatMaxHP) != statEntries.end())
+		auto itr = statEntries.find(eStatMaxHP);
+		if (itr != statEntries.end())
 		{
-			//For display purposes we really, really should not care what the value is. Only that it's the 'right' value for unconscious purposes.
-			return statEntries[eStatMaxHP] >= (INT_MAX - 1) ? INT_MAX - 1 : (int32_t) statEntries[eStatMaxHP];
+			return itr->second >= (INT_MAX - 1)
+				? INT_MAX - 1
+				: static_cast<int32_t>(itr->second);
 		}
-		return 100;
+
+		return MaxHP_Trampoline(a1, a2);
 	}
 
 	int32_t MaxMana_Trampoline(int);
 	int32_t MaxMana_Detour(int a1)
 	{
-		if (statEntries.find(eStatMaxMana) != statEntries.end())
+		auto itr = statEntries.find(eStatMaxMana);
+		if (itr != statEntries.end())
 		{
-			//For display purposes we really, really should not care what the value is. Only that it's the 'right' value for unconscious purposes.
-			return statEntries[eStatMaxMana] >= (INT_MAX - 1) ? INT_MAX - 1 : (int32_t)statEntries[eStatMaxMana];
+			// For display purposes we really, really should not care what the value is.
+			// Only that it's the 'right' value for unconscious purposes.
+			return itr->second >= (INT_MAX - 1)
+				? INT_MAX - 1
+				: static_cast<int32_t>(itr->second);
 		}
-		return 100;
+
+		return MaxMana_Trampoline(a1);
 	}
+
 
 	int32_t MaxEndurance_Trampoline(int);
 	int32_t MaxEndurance_Detour(int a1)
 	{
-		if (statEntries.find(eStatMaxEndur) != statEntries.end())
+		auto itr = statEntries.find(eStatMaxEndur);
+		if (itr != statEntries.end())
 		{
-			//For display purposes we really, really should not care what the value is. Only that it's the 'right' value for unconscious purposes.
-			return statEntries[eStatMaxEndur] >= (INT_MAX - 1) ? INT_MAX - 1 : (int32_t)statEntries[eStatMaxEndur];
+			// For display purposes we really, really should not care what the value is.
+			// Only that it's the 'right' value for unconscious purposes.
+			return itr->second >= (INT_MAX - 1)
+				? INT_MAX - 1
+				: static_cast<int32_t>(itr->second);
 		}
-		return 100;
-	}
 
+		return MaxEndurance_Trampoline(a1);
+	}
 
 	int32_t CurHP_Trampoline(int, unsigned char);
 	int32_t CurHP_Detour(int a1, unsigned char a2)
 	{
-		if (statEntries.find(eStatCurHP) != statEntries.end())
+		auto itr = statEntries.find(eStatCurHP);
+		if (itr != statEntries.end())
 		{
-			//For display purposes we really, really should not care what the value is. Only that it's the 'right' value for unconscious purposes.
-			return statEntries[eStatCurHP] >= (INT_MAX - 1) ? INT_MAX - 1 : (int32_t)statEntries[eStatCurHP];
+			// For display purposes we really, really should not care what the value is.
+			// Only that it's the 'right' value for unconscious purposes.
+			return itr->second >= (INT_MAX - 1)
+				? INT_MAX - 1
+				: static_cast<int32_t>(itr->second);
 		}
-		return 100;
+
+		return CurHP_Trampoline(a1, a2);
 	}
+
 
 	int32_t CurMana_Trampoline(int);
 	int32_t CurMana_Detour(int a1)
 	{
-		if (statEntries.find(eStatCurMana) != statEntries.end())
+		auto itr = statEntries.find(eStatCurMana);
+		if (itr != statEntries.end())
 		{
-			//For display purposes we really, really should not care what the value is. Only that it's the 'right' value for unconscious purposes.
-			return statEntries[eStatCurMana] >= (INT_MAX - 1) ? INT_MAX - 1 : (int32_t)statEntries[eStatCurMana];
+			// For display purposes we really, really should not care what the value is.
+			// Only that it's the 'right' value for unconscious purposes.
+			return itr->second >= (INT_MAX - 1)
+				? INT_MAX - 1
+				: static_cast<int32_t>(itr->second);
 		}
-		return 100;
-	}
 
+		return CurMana_Trampoline(a1);
+	}
 	int32_t CurEndurance_Trampoline(int);
 	int32_t CurEndurance_Detour(int a1)
 	{
-		if (statEntries.find(eStatCurEndur) != statEntries.end())
+		auto itr = statEntries.find(eStatCurEndur);
+		if (itr != statEntries.end())
 		{
-			//For display purposes we really, really should not care what the value is. Only that it's the 'right' value for unconscious purposes.
-			return statEntries[eStatCurEndur] >= (INT_MAX - 1) ? INT_MAX - 1 : (int32_t)statEntries[eStatCurEndur];
+			// For display purposes we really, really should not care what the value is.
+			// Only that it's the 'right' value for unconscious purposes.
+			return itr->second >= (INT_MAX - 1)
+				? INT_MAX - 1
+				: static_cast<int32_t>(itr->second);
 		}
-		return 100;
+
+		return CurEndurance_Trampoline(a1);
 	}
 
 
 	int GetUsableClass_Trampoline(int a1, DWORD a2);
 	int GetUsableClass_Detour(int a1, DWORD a2)
 	{
-		auto statItr = statEntries.find(eStatClassless);
+		auto statItr = statEntries.find(eStatClassesBitmask);
 		if (statItr != statEntries.end())
 		{
-			if (statItr->second == 17)
-				return -1;
+			
 		}
 
 		return GetUsableClass_Trampoline(a1, a2);
 	}
 
+
 	int IsSpellcaster_Trampoline();
 	int IsSpellcaster_Detour()
 	{
-		return 1;
+		auto itr = statEntries.find(eStatClassesBitmask);
+		if (itr != statEntries.end())
+		{
+			// Server explicitly allows spellcasting
+			return 1;
+		}
+
+		return IsSpellcaster_Trampoline();
 	}
+
 
 	int IsSpellcaster2_Trampoline(int, int, int, int);
 	int IsSpellcaster2_Detour(int a1, int a2, int a3, int a4)
 	{
-		return 1;
+		auto itr = statEntries.find(eStatClassesBitmask);
+		if (itr != statEntries.end())
+		{
+			return 1;
+		}
+
+		return IsSpellcaster2_Trampoline(a1, a2, a3, a4);
 	}
+
 
 	int IsSpellcaster3_Trampoline();
 	int IsSpellcaster3_Detour()
 	{
-		return 1;
+		auto itr = statEntries.find(eStatClassesBitmask);
+		if (itr != statEntries.end())
+		{
+			return 1;
+		}
+
+		return IsSpellcaster3_Trampoline();
 	}
+
 
 	VOID ClampVelocity_Trampoline(int);
 	VOID ClampVelocity_Detour(int a1)
@@ -1176,11 +1266,10 @@ public:
 	int GetSpellLevelNeeded_Trampoline(int spellid);
 	int GetSpellLevelNeeded_Detour(int spellid)
 	{
-		auto statItr = statEntries.find(eStatClassless);
+		auto statItr = statEntries.find(eStatClassesBitmask);
 		if (statItr != statEntries.end())
 		{
-			if (statItr->second == 17)
-				return 1;
+
 		}
 
 		return GetSpellLevelNeeded_Trampoline(spellid);
@@ -1195,33 +1284,39 @@ public:
 	double CalculateWeight_Trampoline();
 	double CalculateWeight_Detour()
 	{
-		double value = 1.0;
+		if (!pLocalPlayer || !pLocalPlayer->Data.pSpawn)
+			return CalculateWeight_Trampoline();
 
-		if (pLocalPlayer->Data.pSpawn->SpeedRun)
+		if (!pLocalPlayer->Data.pSpawn->SpeedRun)
+			return CalculateWeight_Trampoline();
+
+		if (*EQADDR_RUNWALKSTATE == 1)
 		{
-
-			if (statEntries.find(eStatRunspeed) != statEntries.end() && *EQADDR_RUNWALKSTATE == 1)
+			auto itr = statEntries.find(eStatRunspeed);
+			if (itr != statEntries.end())
 			{
-				int64_t val = (int64_t)statEntries[eStatRunspeed];
-
+				int64_t val = static_cast<int64_t>(itr->second);
 				if (val == 0)
-					return 0.0f;
+					return 0.0;
 
-				return ((double)val / 100000.0);
-			}
-
-			if (statEntries.find(eStatWalkspeed) != statEntries.end())
-			{
-				float val = (int32_t)statEntries[eStatWalkspeed];
-
-				if (val == 0)
-					return 0;
-				return ((double)val / 100000.0);
+				return static_cast<double>(val) / 100000.0;
 			}
 		}
-		return value;
-	}
+		else
+		{
+			auto itr = statEntries.find(eStatWalkspeed);
+			if (itr != statEntries.end())
+			{
+				int64_t val = static_cast<int64_t>(itr->second);
+				if (val == 0)
+					return 0.0;
 
+				return static_cast<double>(val) / 100000.0;
+			}
+		}
+
+		return CalculateWeight_Trampoline();
+	}
 };
 
 DETOUR_TRAMPOLINE_EMPTY(VOID CLabelHook::Draw_Trampoline(VOID));
@@ -1254,9 +1349,11 @@ PLUGIN_API VOID InitializeMQ2Labels(VOID)
 	eqTypesMap[EQLabelTypes::MaximumHitPoints] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::ManaNumberMax] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::EnduranceNumberMax] = EQLabelFunction;
+
 	eqTypesMap[EQLabelTypes::PlayersCurrentHP] = EQDualHPLabelFunction;
 	eqTypesMap[EQLabelTypes::ManaMaxMana] = EQDualManaLabelFunction;
 	eqTypesMap[EQLabelTypes::EnduranceMaxEndurance] = EQDualEndurLabelFunction;
+
 	eqTypesMap[EQLabelTypes::Strength] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::Stamina] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::Dexterity] = EQLabelFunction;
@@ -1264,48 +1361,28 @@ PLUGIN_API VOID InitializeMQ2Labels(VOID)
 	eqTypesMap[EQLabelTypes::Wisdom] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::Intelligence] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::Charisma] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::SpellHaste] = EQLabelFunction;
+
 	eqTypesMap[EQLabelTypes::HitPointPercentage] = EQHPPercentageLabelFunction;
 	eqTypesMap[EQLabelTypes::ManaPercentage] = EQManaPercentageLabelFunction;
 	eqTypesMap[EQLabelTypes::StaminaEndurancePercentage] = EQEndurPercentageLabelFunction;
-	eqTypesMap[EQLabelTypes::MeleeHaste] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::HealingHaste] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::SpellCrit] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::MeleeCrit] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::HealingCrit] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::SpellPower] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::MeleePower] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::HealingPower] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::TotalPower] = EQLabelFunction;
+
 	eqTypesMap[EQLabelTypes::SavevsMagic] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::SavevsCold] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::SavevsFire] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::SavevsPoison] = EQLabelFunction;
 	eqTypesMap[EQLabelTypes::SavevsDisease] = EQLabelFunction;
+
 	eqTypesMap[EQLabelTypes::Walkspeed] = EQSpeedLabelFunction;
 	eqTypesMap[EQLabelTypes::Runspeed] = EQSpeedLabelFunction;
-	eqTypesMap[EQLabelTypes::CurrentOffense] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::CurrentMitigation] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::Classless] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::Class] = EQClasslessFunction;
+
+	eqTypesMap[EQLabelTypes::ClassesBitmask] = EQLabelFunction;
+
 	eqTypesMap[EQLabelTypes::Weight] = EQCurWeightLabelFunction;
 	eqTypesMap[EQLabelTypes::MaximumWeight] = EQMaxWeightLabelFunction;
 	eqTypesMap[EQLabelTypes::WeightMaxWeight] = EQWeightLabelFunction;
-	eqTypesMap[EQLabelTypes::Mitigation] = EQSpeedLabelFunction;
+
 	eqTypesMap[EQLabelTypes::AAPoints] = EQLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel1] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel2] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel3] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel4] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel5] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel6] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel7] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel8] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel9] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel10] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel11] = EQSynergyLabelFunction;
-	eqTypesMap[EQLabelTypes::SynergyLevel12] = EQSynergyLabelFunction;
+
 
 	statLabelMappings[EQLabelTypes::CurrentHitPoints] = eStatEntry::eStatCurHP;
 	statLabelMappings[EQLabelTypes::ManaNumber] = eStatEntry::eStatCurMana;
@@ -1330,7 +1407,7 @@ PLUGIN_API VOID InitializeMQ2Labels(VOID)
 	statLabelMappings[EQLabelTypes::MeleePower] = eStatEntry::eStatMeleePower;
 	statLabelMappings[EQLabelTypes::HealingPower] = eStatEntry::eStatHealingPower;
 	statLabelMappings[EQLabelTypes::TotalPower] = eStatEntry::eStatTotalPower;
-	statLabelMappings[EQLabelTypes::SynergyLevel] = eStatEntry::eStatSynergyLevel;
+	//statLabelMappings[EQLabelTypes::SynergyLevel] = eStatEntry::eStatSynergyLevel;
 	statLabelMappings[EQLabelTypes::SavevsMagic] = eStatEntry::eStatMR;
 	statLabelMappings[EQLabelTypes::SavevsCold] = eStatEntry::eStatCR;
 	statLabelMappings[EQLabelTypes::SavevsFire] = eStatEntry::eStatFR;
@@ -1339,24 +1416,11 @@ PLUGIN_API VOID InitializeMQ2Labels(VOID)
 	statLabelMappings[EQLabelTypes::CurrentOffense] = eStatEntry::eStatATK;
 	statLabelMappings[EQLabelTypes::CurrentMitigation] = eStatEntry::eStatAC;
 	statLabelMappings[EQLabelTypes::Mitigation] = eStatEntry::eStatMitigation;
-	statLabelMappings[EQLabelTypes::Classless] = eStatEntry::eStatClassless;
-	statLabelMappings[EQLabelTypes::Class] = eStatEntry::eStatClassless;
+	statLabelMappings[EQLabelTypes::ClassesBitmask] = eStatEntry::eStatClassesBitmask;
+	statLabelMappings[EQLabelTypes::Class] = eStatEntry::eStatClassesBitmask;
 	statLabelMappings[EQLabelTypes::Weight] = eStatEntry::eStatWeight;
 	statLabelMappings[EQLabelTypes::MaximumWeight] = eStatEntry::eStatMaxWeight;
 	statLabelMappings[EQLabelTypes::AAPoints] = eStatEntry::eStatAAPoints;
-	statLabelMappings[EQLabelTypes::SynergyLevel1] = eStatEntry::eStatSynergyLevel1;
-	statLabelMappings[EQLabelTypes::SynergyLevel2] = eStatEntry::eStatSynergyLevel2;
-	statLabelMappings[EQLabelTypes::SynergyLevel3] = eStatEntry::eStatSynergyLevel3;
-	statLabelMappings[EQLabelTypes::SynergyLevel4] = eStatEntry::eStatSynergyLevel4;
-	statLabelMappings[EQLabelTypes::SynergyLevel5] = eStatEntry::eStatSynergyLevel5;
-	statLabelMappings[EQLabelTypes::SynergyLevel6] = eStatEntry::eStatSynergyLevel6;
-	statLabelMappings[EQLabelTypes::SynergyLevel7] = eStatEntry::eStatSynergyLevel7;
-	statLabelMappings[EQLabelTypes::SynergyLevel8] = eStatEntry::eStatSynergyLevel8;
-	statLabelMappings[EQLabelTypes::SynergyLevel9] = eStatEntry::eStatSynergyLevel9;
-	statLabelMappings[EQLabelTypes::SynergyLevel10] = eStatEntry::eStatSynergyLevel10;
-	statLabelMappings[EQLabelTypes::SynergyLevel11] = eStatEntry::eStatSynergyLevel11;
-	statLabelMappings[EQLabelTypes::SynergyLevel12] = eStatEntry::eStatSynergyLevel12;
-
 
     // Add commands, macro parameters, hooks, etc.
     //EasyClassDetour(CLabel__Draw,CLabelHook,Draw_Detour,VOID,(VOID),Draw_Trampoline);
@@ -1376,7 +1440,6 @@ PLUGIN_API VOID InitializeMQ2Labels(VOID)
 	EzDetour(EQ_Spell__GetSpellLevelNeeded, &EQCharacter1Hook::GetSpellLevelNeeded_Detour, &EQCharacter1Hook::GetSpellLevelNeeded_Trampoline);
 	EzDetour(CSpellBookWnd__CanStartMemming, &EQCharacter1Hook::CanStartMem_Detour, &EQCharacter1Hook::CanStartMem_Trampoline);
     EzDetour(CSidlManager__CreateLabel,&CSidlManagerHook::CreateLabel_Detour,&CSidlManagerHook::CreateLabel_Trampoline);
-	EzDetour(CLabel__Draw, &CLabelHook::Draw_Detour, &CLabelHook::Draw_Trampoline);
     EzDetour(__GetGaugeValueFromEQ,GetGaugeValueFromEQ_Detour, GetGaugeValueFromEQ_Trampoline);
 	EzDetour(__GetLabelFromEQ, GetLabelFromEQ_Detour, GetLabelFromEQ_Trampoline);
 }
@@ -1384,13 +1447,30 @@ PLUGIN_API VOID InitializeMQ2Labels(VOID)
 // Called once, when the plugin is to shutdown
 PLUGIN_API VOID ShutdownLabelsPlugin(VOID)
 {
-   // DebugSpewAlways("Shutting down MQ2Labels");
 	eqTypesMap.clear();
 	statLabelMappings.clear();
-    // Remove commands, macro parameters, hooks, etc.
-    RemoveDetour(CSidlManager__CreateLabel);
-    RemoveDetour(CLabel__Draw);
-    //RemoveDetour(CGaugeWnd__Draw);
-    //RemoveDetour(__GetGaugeValueFromEQ);
+
+	RemoveDetour(CSidlManager__CreateLabel);
+	RemoveDetour(CLabel__Draw);
+
+	RemoveDetour(EQ_Character__Max_HP);
+	RemoveDetour(EQ_Character__Cur_HP);
+	RemoveDetour(EQ_Character__Cur_Mana);
+	RemoveDetour(EQ_Character__Max_Mana);
+	RemoveDetour(EQ_Character__Cur_Endurance);
+	RemoveDetour(EQ_Character__Max_Endurance);
+
+	RemoveDetour(EQ_Character__GetUsableClasses);
+	RemoveDetour(EQ_Character__IsSpellcaster);
+	RemoveDetour(EQ_Character__IsSpellcaster_2);
+	RemoveDetour(EQ_Character__IsSpellcaster_3);
+
+	RemoveDetour(EQ_Character__CalculateWeight);
+	RemoveDetour(EQ_Spell__GetSpellLevelNeeded);
+	RemoveDetour(CSpellBookWnd__CanStartMemming);
+
+	RemoveDetour(__GetGaugeValueFromEQ);
+	RemoveDetour(__GetLabelFromEQ);
 }
+
 

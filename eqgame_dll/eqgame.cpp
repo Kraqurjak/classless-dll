@@ -1023,11 +1023,13 @@ void InitHooks()
 
 	   // return_ActivateDet = (Activate_t)DetourFunction((PBYTE)var, (PBYTE)CXWndActivateHook); // Almost all non-classic windows have been disabled.
 
-	   var = ((0x00507b30 - 0x400000) + baseAddress);
-	   return_SetCCreateCameraDet =
-		   (SetCCreateCamera_t)DetourFunction((PBYTE)var, (PBYTE)SetCCreateCameraHook);
-	   var = (((DWORD)0x009C8C2C - 0x400000) + baseAddress);
-	   PatchA((DWORD*)var, "relic\x00", 6); // Use load instead of "CLZ"
+	   //Kraqur Use classic load screen
+	   //var = ((0x00507b30 - 0x400000) + baseAddress);
+	   //return_SetCCreateCameraDet =
+	   //   (SetCCreateCamera_t)DetourFunction((PBYTE)var, (PBYTE)SetCCreateCameraHook);
+	   //var = (((DWORD)0x009C8C2C - 0x400000) + baseAddress);
+	  
+	   //PatchA((DWORD*)var, "relic\x00", 6); // Use load instead of "CLZ"
 
 
 	   //basedata as spell CRC begin
@@ -1114,7 +1116,13 @@ void InitHooks()
 	   PatchA((DWORD*)var, "\x90\x90\xEB", 3); // nop / jmp dmg bonus #2
 
 	   var = (((DWORD)0x0057F2C7 - 0x400000) + baseAddress);
-	   PatchA((DWORD*)var, "\xBF\xFF\xFF\xFF\x0F\x90\x90\x90\xE9\xF4\x01\x00\x00\x90", 14); //patch stat cap to be 0x0FFFFFFF
+
+	   //Kraqur: Change max stats to 455
+	   // mov edi, 0x000001C7  (455), then same NOP/JMP padding
+	   PatchA((DWORD*)var,
+		   "\xBF\xC7\x01\x00\x00\x90\x90\x90\xE9\xF4\x01\x00\x00\x90", // Max Stats
+		   14);
+
 
 	   var = (((DWORD)0x0069A3D1 - 0x400000) + baseAddress);
 	   PatchA((DWORD*)var, "\xB8\x60\xEA\x00\x00\x90", 6); //reuse time hack, up to 1 minute
