@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/Release
+/.vs
+/eqgame_dll
+Release/dinput8.dll
