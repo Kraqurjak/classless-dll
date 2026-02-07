@@ -1198,7 +1198,7 @@ public:
 		auto statItr = statEntries.find(eStatClassesBitmask);
 		if (statItr != statEntries.end())
 		{
-			
+			// Cannot modify this - also used for item display
 		}
 
 		return GetUsableClass_Trampoline(a1, a2);
@@ -1263,15 +1263,32 @@ public:
 		//}
 	}
 
+	// Kraqur Enables spell to be used with all multiclass combinations, 
+	// so we have to be able to bypass the spell level requirement check as well
 	int GetSpellLevelNeeded_Trampoline(int spellid);
 	int GetSpellLevelNeeded_Detour(int spellid)
 	{
 		auto statItr = statEntries.find(eStatClassesBitmask);
 		if (statItr != statEntries.end())
 		{
-
+			PSPELL pSpell = (PSPELL)this;
+			if (pSpell)
+			{
+				int minLevel = 255;
+				DWORD bitmask = (DWORD)statItr->second;
+				for (int i = 0; i < 16; i++)
+				{
+					if (bitmask & (1 << i))
+					{
+						int lvl = pSpell->Level[i];
+						if (lvl < 255 && lvl < minLevel)
+							minLevel = lvl;
+					}
+				}
+				if (minLevel != 255)
+					return minLevel;
+			}
 		}
-
 		return GetSpellLevelNeeded_Trampoline(spellid);
 	}
 
